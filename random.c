@@ -2,6 +2,7 @@
 #include<conio.h>
 #include<stdlib.h>
 #include<time.h>
+#include<string.h>
 
 int main(int argc, char *argv[]){
     if(argc<2){
@@ -11,12 +12,16 @@ int main(int argc, char *argv[]){
 
     char seperator;
 
-    if(argv[1]=='-s'){
+    if(!strcmp(argv[1],"-s")){
         seperator = ' ';
-    }else if(argv[1]=='-c')
+    }else if(!strcmp(argv[1],"-c"))
         seperator = ',';
 
-    for(int i = 0 ; i < argv[2] ; i++){
+        srand((unsigned)time(NULL));
 
+    for(int i = 0 ; i < atoi(argv[2])-1 ; i++){
+            printf("%d%c", rand()%1000, seperator);
     }
+
+    printf("%d", rand()%1000);
 }
