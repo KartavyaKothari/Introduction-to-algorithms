@@ -4,5 +4,5 @@
 int main(){
     int arr[10] = {}
 
-    return 0;
+    return 1;
 }
