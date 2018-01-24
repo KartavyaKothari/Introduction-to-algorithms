@@ -2,13 +2,13 @@
 
 void merge(int arr[], int p, int m, int q) {
     int l[m-p+1];
-    int r[q-m+1];
+    int r[q-m];
 
     for(int i = 0 ; i <= m-p ; i++){
         l[i] = arr[p+i];
     }
 
-    for(int i = 0 ; i <= m-p ; i++){
+    for(int i = 0 ; i < q-m ; i++){
         r[i] = arr[m+1+i];
     }
 
@@ -16,18 +16,18 @@ void merge(int arr[], int p, int m, int q) {
     int li = 0;
     int i = 0;
 
-    while(ri<q-m+1&&li<m-p+1){
+    while(ri<q-m&&li<m-p+1){
         if(l[li]<r[ri]){
-            arr[i++] = l[li++];
-        }else arr[i++] = r[ri++];
+            arr[p+i++] = l[li++];
+        }else arr[p+i++] = r[ri++];
     }
 
-    while(ri<q-m+1){
-        arr[i++] = r[ri++];
+    while(ri<q-m){
+        arr[p+i++] = r[ri++];
     }
 
     while(li<m-p+1){
-        arr[i++] = l[li++];
+        arr[p+i++] = l[li++];
     }
 }
 
