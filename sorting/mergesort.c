@@ -1,4 +1,9 @@
 #include<stdio.h>
+//Merge sort:
+//Worst case complexity: O(nlog(n))
+//Best case complexity: O(nlog(n))
+//Would be preffered for heavily unsorted elements
+//Would be preffered for large smaple set
 
 void merge(int arr[], int p, int m, int q) {
     int l[m-p+1];

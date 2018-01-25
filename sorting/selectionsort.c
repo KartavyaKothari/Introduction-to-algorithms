@@ -1,4 +1,9 @@
 #include<stdio.h>
+//Merge sort:
+//Worst case complexity: O(n^2)
+//Best case complexity: O(n^2)
+//Would be preffered for heavily unsorted elements
+//Would be preffered for small smaple set
 
 void selectionsort(int arr[],int n){
     int min,index;

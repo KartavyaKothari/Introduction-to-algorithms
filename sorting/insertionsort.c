@@ -1,5 +1,9 @@
-#include<conio.h>
 #include<stdio.h>
+//Insertion sort:
+//Worst case complexity: O(n^2)
+//Best case complexity: O(n)
+//Would be preffered for mostly-sorted elements
+//Would be preffered for small sample set
 
 void insertionSort(int arr[],int n){
     for(int i = 1 ; i < n ; i++){
