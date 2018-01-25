@@ -1,14 +1,10 @@
 #include<conio.h>
 #include<stdio.h>
 
-int main(){
-    int arr[10] = {779,287,510,330,225,777,486,630,384,413};
-
-    for(int i = 0 ; i < 10 ; i++)
-        printf("%d ",arr[i] );
-
-    for(int i = 1 ; i < 10 ; i++){
+void insertionSort(int arr[],int n){
+    for(int i = 1 ; i < n ; i++){
         int key = arr[i];
+        int j;
 
         //Linear search part in insertion sort
         for(j = i-1 ; j >= 0 ; j--){
@@ -41,8 +37,18 @@ int main(){
         //
         //     j--;
         // }
-        // arr[j+1]=key;
+
+        arr[j+1]=key;
     }
+}
+
+int main(){
+    int arr[] = {779,287,510,330,225,777,486,630,384,413};
+
+    for(int i = 0 ; i < 10 ; i++)
+        printf("%d ",arr[i] );
+
+    insertionSort(arr,10);
 
     putchar('\n');
 
