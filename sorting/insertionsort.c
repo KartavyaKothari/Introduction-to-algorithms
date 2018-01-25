@@ -10,10 +10,21 @@ int main(){
 
     for(int i = 1 ; i < 10 ; i++){
         int key = arr[i];
-        for(j = i-1 ; j >= 0 ; j--){
+        //Linear search in insertion sort
+        /*for(j = i-1 ; j >= 0 ; j--){
             if(arr[j]>key){
                 arr[j+1]=arr[j];
             }else break;
+        }*/
+
+        //Binary search in insertion sort
+        j = i-1;
+        while(j>=0){
+            if(arr[j]>key){
+                arr[j+1]=arr[j];
+            }else break;
+
+            j=j/2;
         }
         arr[j+1]=key;
     }
