@@ -37,7 +37,7 @@ void merge(int arr[], int p, int m, int q) {
 }
 
 void mergesort(int arr[], int p, int q) {
-    if(q-p>1){
+    if(p<q){
         int m = (p+q)/2;
         mergesort(arr,p,m);
         mergesort(arr,m+1,q);
@@ -47,15 +47,16 @@ void mergesort(int arr[], int p, int q) {
 
 int main(int argc, char const *argv[]) {
     int arr[] = {710,841,491,833,740,491,502,251,864,377,719,682,245,425,851,961,69,990,290,265};
+    int n = 20;
 
-    for(int i = 0 ; i < 20 ; i++)
+    for(int i = 0 ; i < n ; i++)
         printf("%d ", arr[i]);
 
-    mergesort(arr,0,19);
+    mergesort(arr,0,n-1);
 
     putchar('\n');
 
-    for(int i = 0 ; i < 20 ; i++)
+    for(int i = 0 ; i < n ; i++)
         printf("%d ", arr[i]);
 
     return 0;
