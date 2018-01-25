@@ -3,6 +3,7 @@
 int binSearch(int arr[], int low, int high, int ele){
     while(low<=high){
         int m = (low+high)/2;
+
         if(ele==arr[m]){
             return m;
         }else if(ele<arr[m]){
