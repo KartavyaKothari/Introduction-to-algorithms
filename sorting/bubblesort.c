@@ -1,4 +1,9 @@
 #include<stdio.h>
+//Bubble sort:
+//Worst case complexity: O(n^2)
+//Best case complexity: O(n)
+//Would be preffered for heavily unsorted elements
+//Would be preffered for small sample set
 
 void bubblesort(int arr[], int n) {
     for(int i = 0 ; i < n ; i ++){
