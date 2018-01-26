@@ -19,9 +19,7 @@ int main(int argc, char *argv[]){
 
         srand((unsigned)time(NULL));
 
-    for(int i = 0 ; i < atoi(argv[2])-1 ; i++){
-            printf("%d%c", rand()%1000, seperator);
+    for(int i = 0 ; i < atoi(argv[2]) ; i++){
+            printf("%d%c", rand()%40-20, seperator);
     }
-
-    printf("%d", rand()%1000);
 }
