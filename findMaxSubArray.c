@@ -9,7 +9,7 @@ typedef struct {
 } RANGE;
 
 int findSum(int arr[], int low, int high){
-    int n = high - low;
+    int n = high - low + 1;
     int sum = 0;
 
     if(n == 0){
@@ -44,7 +44,7 @@ RANGE findMaxCrossingSubArray(int arr[], int low, int mid, int high){
 
         if(currSum>maxSum){
             maxSum = currSum;
-            maxLeftSumIndex = i;
+            maxRightSumIndex = i;
         }
     }
 
@@ -85,9 +85,10 @@ RANGE findMaxSubArray(int arr[],int low,int high){
 }
 
 int main(int argc, char const *argv[]) {
-    int arr[] = {-4,10,2,-6,9,-6,-2,6,15,12,-11,-14,7,-9,10,4,-16,0,-19,4};
+    int arr[] = {8,-16,5,-9,-1,-14,-10,-17,0,-7,19,15,10,-5,-10,-5,11,-4,-5,-5};
+    int n = sizeof(arr)/sizeof(int);
 
-    RANGE maxSubArray = findMaxSubArray(arr,0,19);
+    RANGE maxSubArray = findMaxSubArray(arr,0,n-1);
 
     printf("Max sum = %d\nFrom array index %d to index %d\n", maxSubArray.sum,maxSubArray.low,maxSubArray.high);
 
