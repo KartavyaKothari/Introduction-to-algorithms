@@ -3,9 +3,8 @@
 //Worst case complexity: O(n^2)
 //Average case complexity: O(nlog(n))
 //Constant factors hidden in quick sort quite low
-//Sorts in place3sw2 
-//Would be preffered for mostly-sorted elements
-//Would be preffered for small sample set
+//Sorts in place 
+//Would be preffered for heavily unsorted uniformly distributed elements
 //Stable sort? - We can choose to make it stable or unstable by changing comparison
 //              condition to >= instead of >
 
