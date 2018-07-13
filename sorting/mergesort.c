@@ -4,6 +4,7 @@
 //Best case complexity: O(nlog(n))
 //Would be preffered for heavily unsorted elements
 //Would be preffered for large sample set
+//Does not do the sorting InPlace
 
 void merge(int arr[], int p, int m, int q) {
     int l[m-p+1];
