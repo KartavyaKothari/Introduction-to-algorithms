@@ -3,7 +3,7 @@
 //Worst case complexity: O(nlog(n))
 //Best case complexity: O(nlog(n))
 //Would be preffered for heavily unsorted elements
-//Would be preffered for large smaple set
+//Would be preffered for large sample set
 
 void merge(int arr[], int p, int m, int q) {
     int l[m-p+1];
@@ -37,6 +37,10 @@ void merge(int arr[], int p, int m, int q) {
 }
 
 void mergesort(int arr[], int p, int q) {
+    //The terminating condition is p>=q
+    //There is chance for optimization here
+    //We can decide a threshold n0 before which Insertion sort gives a better performance than merge sort
+    //Then below that threshold we can sort the arrray in one go using insertion sort
     if(p<q){
         int m = (p+q)/2;
         mergesort(arr,p,m);
