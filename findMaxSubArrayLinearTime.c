@@ -1,5 +1,8 @@
 #include<stdio.h>
 
+//Incomplete!!!!!!!!
+
+
 #define NEG_INFINITY -1000
 
 typedef struct {
