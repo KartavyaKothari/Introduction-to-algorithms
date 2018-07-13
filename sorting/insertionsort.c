@@ -4,6 +4,8 @@
 //Best case complexity: O(n)
 //Would be preffered for mostly-sorted elements
 //Would be preffered for small sample set
+//Stable sort? - We can choose to make it stable or unstable by chaging comparison
+//              condition to >= intstead of >
 
 void insertionSort(int arr[],int n){
     for(int i = 1 ; i < n ; i++){
@@ -18,7 +20,7 @@ void insertionSort(int arr[],int n){
         }
 
         //Binary search in insertion sort
-        //This cant be implemented, as a linear fashion not only is required to
+        //This cant be implemented, as a linear fashion is not only required to
         //search but also to shift all elements one by one towards the right to
         //make space for the key element to be inserted
 
