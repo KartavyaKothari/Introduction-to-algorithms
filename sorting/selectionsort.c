@@ -3,7 +3,7 @@
 //Worst case complexity: O(n^2)
 //Best case complexity: O(n^2)
 //Would be preffered for heavily unsorted elements
-//Would be preffered for small smaple set
+//Would be preffered for small sample set
 
 void selectionsort(int arr[],int n){
     int min,index;

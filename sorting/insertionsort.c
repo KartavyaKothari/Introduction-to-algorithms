@@ -4,8 +4,8 @@
 //Best case complexity: O(n)
 //Would be preffered for mostly-sorted elements
 //Would be preffered for small sample set
-//Stable sort? - We can choose to make it stable or unstable by chaging comparison
-//              condition to >= intstead of >
+//Stable sort? - We can choose to make it stable or unstable by changing comparison
+//              condition to >= instead of >
 
 void insertionSort(int arr[],int n){
     for(int i = 1 ; i < n ; i++){

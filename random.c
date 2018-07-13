@@ -4,6 +4,9 @@
 #include<time.h>
 #include<string.h>
 
+//random -c
+//random -s
+
 int main(int argc, char *argv[]){
     if(argc<2){
         printf("Wrong command format\n");
