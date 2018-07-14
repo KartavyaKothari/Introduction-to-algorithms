@@ -6,7 +6,7 @@ int stack[SIZE];
 int stackTop = -1;
 
 void push(int ele){
-    if(stackTop = SIZE -1){
+    if(stackTop == SIZE -1){
         printf("Stack overflow\n");
         return;
     }
@@ -18,12 +18,12 @@ void pop(){
         printf("Stack Empty\n");
         return;
     }
-    printf("%d", stack[stackTop--]);
+    printf("%d\n", stack[stackTop--]);
     // return stack[stackTop--];
 }
 
 void displayStack(){
-    for(int i = 0 ; i < stackTop ; i++){
+    for(int i = 0 ; i <= stackTop ; i++){
         printf("%d ",stack[i]);
     }
     printf("\n");
