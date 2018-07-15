@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-#define SIZE 100
+#define SIZE 2
 
 //There is a tradeoff in queue. 
 //We can either keep only n-1 elements in array of n
@@ -14,6 +14,23 @@ int queue[SIZE];
 int front = 0, rear = 0;
 
 int acceptInteger(char *name);
+void displayQueue(){
+    if(rear==front){
+        printf("Queue empty!\n");
+        return;
+    }
+    
+    int i = front;
+
+    while(i!=rear){
+        printf("%d ",queue[i]);
+        i=(i+1)%SIZE;
+    }
+    // for(int i = front ; (i%SIZE) < rear ; i=(i+1)%SIZE){
+    //     printf("%d ",queue[i]);
+    // }
+    putchar('\n');
+}
 
 void enQueue(int ele){
     if((rear+1)%SIZE == front){
@@ -23,6 +40,8 @@ void enQueue(int ele){
 
     queue[rear] = ele;
     rear = (rear+1)%SIZE;
+
+    displayQueue();
 }
 
 void deQueue(){
@@ -34,13 +53,7 @@ void deQueue(){
     int temp = queue[front];
     front = (front + 1)%SIZE;
     printf("%d\n",temp);
-}
-
-void displayQueue(){
-    for(int i = front ; (i%SIZE) < rear ; i=(i+1)%SIZE){
-        printf("%d ",queue[i]);
-    }
-    putchar('\n');
+    displayQueue();
 }
 
 int main(int argc, char const *argv[])
