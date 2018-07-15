@@ -6,7 +6,7 @@
 //Deletion =>
 //Searching => O(n)
 
-typedef struct{
+typedef struct node{
     int ele;
     struct node *left;
     struct node *right;
@@ -16,6 +16,38 @@ NODE *root = NULL;
 
 NODE *createNewNode(int ele);
 
+NODE *findSuccessor(){
+    //Left most node of right subtree
+}
+
+NODE *findPredessessor(){
+    //Left most node of right subtree
+}
+
+NODE *getParent(NODE *child){
+    if(child==root){
+        printf("Parent DNE!\n");
+        return NULL;
+    }
+
+    NODE *node = root;
+
+    while(node!=NULL){
+        if(node -> left -> ele == child -> ele || node -> right -> ele == child -> ele)
+            return node;
+
+        if(node -> ele <= child -> ele){ 
+            if(node -> left != NULL) node = node -> left;
+            else {printf("Child itself DNE!\n");return NULL;}
+        }else{
+            if(node -> right != NULL) node = node -> right;
+            else {printf("Child itself DNE!\n");return NULL;}
+        }
+    }
+    
+    printf("Child itself DNE!\n");
+    return NULL;
+}
 void insertNode(int ele){
     NODE *newNode = createNewNode(ele);
     
