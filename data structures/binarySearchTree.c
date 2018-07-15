@@ -31,8 +31,67 @@ NODE *searchTree(int ele);
 
 int main(int argc, char const *argv[])
 {
-    int res;
-    printf("\n");
+    int res,ele;
+    int isTrue = 1;
+
+    while(isTrue){
+        printf("1.Insert\n");
+        printf("2.Delete\n");
+        printf("3.Search\n");
+        printf("4.Minimum\n");
+        printf("5.Maximum\n");
+        printf("6.Successor\n");
+        printf("7.Predecessor\n");
+        printf("8.Inorder\n");
+        printf("9.Preorder\n");
+        printf("10.Postorder\n");
+        printf("11.Quit\n");
+
+        res = acceptInteger("Response");
+        switch(res){
+            case 1:
+                ele = acceptInteger("Element");
+                insertNode(ele);
+                break;
+            case 2:
+                ele = acceptInteger("Element");
+                deleteNode(ele);
+                break;
+            case 3:
+                ele = acceptInteger("Element");
+                searchTree(ele) ? printf("Element found\n") : printf("Element DNE");
+                break;
+            case 4:
+                ele = getMinimum()->ele;
+                printf("Minimum element is %d\n",ele);
+                break;
+            case 5:
+                ele = getMaximum()->ele;
+                printf("Maximum element is %d\n",ele);
+                break;
+            case 6:
+                ele = findSuccessor() -> ele;
+                printf("Successor is %d\n",ele);
+                break;
+            case 7:
+                ele = findPredecessor() -> ele;
+                printf("Predecessor is %d\n",ele);
+                break;
+            case 8:
+                inOrder(root);
+                break;
+            case 9:
+                preOrder(root);
+                break;
+            case 10:
+                postOrder(root);
+                break;
+            case 11:
+                isTrue = 0;
+                break;
+        }
+    }
+
     return 0;
 }
 
