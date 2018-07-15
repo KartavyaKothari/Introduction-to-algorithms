@@ -23,6 +23,6 @@ int main(int argc, char *argv[]){
         srand((unsigned)time(NULL));
 
     for(int i = 0 ; i < atoi(argv[2]) ; i++){
-            printf("%d%c", rand()%40, seperator);
+            printf("%d%c", rand()%900+100, seperator);
     }
 }
