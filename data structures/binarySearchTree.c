@@ -16,6 +16,31 @@ NODE *root = NULL;
 
 NODE *createNewNode(int ele);
 
+NODE *getParent(NODE *child){
+    if(child==root){
+        printf("Parent DNE!\n");
+        return NULL;
+    }
+
+    NODE *node = root;
+
+    while(node!=NULL){
+        if(node -> left -> ele == child -> ele || node -> right -> ele == child -> ele)
+            return node;
+
+        if(node -> ele <= child -> ele){ 
+            if(node -> left != NULL) node = node -> left;
+            else {printf("Child itself DNE!\n");return NULL;}
+        }else{
+            if(node -> right != NULL) node = node -> right;
+            else {printf("Child itself DNE!\n");return NULL;}
+        }
+    }
+    
+    printf("Child itself DNE!\n");
+    return NULL;
+}
+
 NODE *findSuccessor(NODE *node){
     //Left most node of right subtree
     if(node -> right != NULL){
@@ -98,30 +123,6 @@ void inOrder(NODE *node){
     }
 }
 
-NODE *getParent(NODE *child){
-    if(child==root){
-        printf("Parent DNE!\n");
-        return NULL;
-    }
-
-    NODE *node = root;
-
-    while(node!=NULL){
-        if(node -> left -> ele == child -> ele || node -> right -> ele == child -> ele)
-            return node;
-
-        if(node -> ele <= child -> ele){ 
-            if(node -> left != NULL) node = node -> left;
-            else {printf("Child itself DNE!\n");return NULL;}
-        }else{
-            if(node -> right != NULL) node = node -> right;
-            else {printf("Child itself DNE!\n");return NULL;}
-        }
-    }
-    
-    printf("Child itself DNE!\n");
-    return NULL;
-}
 void insertNode(int ele){
     NODE *newNode = createNewNode(ele);
     
@@ -145,20 +146,45 @@ void insertNode(int ele){
     }
 }
 
-// void deleteNode(int ele){
-//     if(root == NULL){
-//         printf("Tree empty!\n");
-//         return NULL;
-//     }
+void deleteNode(int ele){
+    NODE *node = searchTree(ele);
+    if(node == NULL){
+        printf("Element to be deleted DNE!\n");
+        return;
+    }
 
-//     NODE *node = root;
+    NODE *parent = getParent(node);
 
-//     while(node!=NULL){
-//         if(node -> ele == ele){
-//             if(node->left==NULL&&node->right==NULL)
-//         }
-//     }
-// }
+    //Case 1: Leaf node
+    if(node -> left == NULL && node ->right == NULL){
+        if(node -> ele <= parent -> ele){
+            parent -> left = NULL;  //Left child   
+        }else {
+            parent -> right = NULL; //Right child
+        }
+        return;
+    }
+
+    //Case 2: Having one child
+    NODE *temp = NULL;
+
+    if(node -> left == NULL){
+        temp = node -> right;
+    }else if(node -> right == NULL){
+        temp = node -> left;
+    }
+
+    //Case 3: Having both children (Thats why china has one child poilicy)
+    if(node -> left != NULL && node -> right != NULL){
+        NODE *predecessor = findPredecessor(node);
+        deleteNode(predecessor);
+        node -> ele = predecessor -> ele;
+        return;
+    }
+
+    printf("Something went wrong!\n");
+    return;
+}
 
 NODE *searchTree(int ele){
     if(root == NULL){
