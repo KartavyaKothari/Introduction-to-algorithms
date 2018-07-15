@@ -15,6 +15,44 @@ typedef struct node{
 NODE *root = NULL;
 
 NODE *createNewNode(int ele);
+int acceptInteger(char *name);
+
+NODE *getParent(NODE *child);
+NODE *findSuccessor(NODE *node);
+NODE *findPredecessor(NODE *node);
+NODE *getMinimum();
+NODE *getMaximum();
+void preOrder(NODE *node);
+void postOrder(NODE *node);
+void inOrder(NODE *node);
+void insertNode(int ele);
+void deleteNode(int ele);
+NODE *searchTree(int ele);
+
+int main(int argc, char const *argv[])
+{
+    int res;
+    printf("\n");
+    return 0;
+}
+
+NODE *createNewNode(int ele){
+    NODE *node = (NODE*)malloc(sizeof(NODE));
+    node -> ele = ele;
+    node -> left = NULL;
+    node -> right = NULL;
+
+    return node;
+}
+
+int acceptInteger(char *name){
+    int ele;
+    
+    printf("Enter %s: ",name);
+    scanf("%d",&ele);
+
+    return ele;
+}
 
 NODE *getParent(NODE *child){
     if(child==root){
@@ -199,19 +237,4 @@ NODE *searchTree(int ele){
     }else if(node->ele < ele){
         return searchTree(node = node->right);
     }else return searchTree(node = node->left);
-}
-
-int main(int argc, char const *argv[])
-{
-    
-    return 0;
-}
-
-NODE *createNewNode(int ele){
-    NODE *node = (NODE*)malloc(sizeof(NODE));
-    node -> ele = ele;
-    node -> left = NULL;
-    node -> right = NULL;
-
-    return node;
 }
