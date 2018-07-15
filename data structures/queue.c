@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-#define SIZE 2
+#define SIZE 20
 
 //There is a tradeoff in queue. 
 //We can either keep only n-1 elements in array of n
