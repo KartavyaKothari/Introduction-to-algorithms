@@ -24,6 +24,34 @@ NODE *findPredessessor(){
     //Left most node of right subtree
 }
 
+int getMinimum(){
+    NODE *node = root;
+    if(node == NULL){
+        printf("Tree Empty!\n");
+        return NULL;
+    }
+
+    while(node -> left != NULL){
+        node = node -> left;
+    }
+
+    return node -> ele;
+}
+
+int getMaximum(){
+    NODE *node = root;
+    if(node == NULL){
+        printf("Tree Empty!\n");
+        return NULL;
+    }
+
+    while(node -> right != NULL){
+        node = node -> right;
+    }
+
+    return node -> ele;
+}
+
 void preOrder(NODE *node){
     if(node != NULL){
         printf("%d ",node -> ele);
