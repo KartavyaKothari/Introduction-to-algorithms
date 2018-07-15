@@ -1,16 +1,17 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-typedef struct{
+typedef struct LIST{
     int ele;
-    LIST *next;
+    struct LIST *next;
 } LIST;
 
 LIST *start = NULL;
 
 LIST *createNode(int ele);
+int acceptInteger(char *name);
 
-void append(int ele){
+void appendNode(int ele){
     LIST *newNode = createNode(ele);
     
     if(start == NULL){
@@ -27,7 +28,7 @@ void append(int ele){
     node->next = newNode;
 }
 
-void remove(int ele){
+void removeNode(int ele){
     if(start == NULL){
         printf("LL Empty\n");
         return;
@@ -42,12 +43,12 @@ void remove(int ele){
 
     LIST *temp;
 
-    while(node != NULL){
+    while(node->next != NULL){
         if(node->next->ele == ele){
             printf("%d removed!\n",node->next->ele);
             temp = node->next->next;
             node->next = temp;
-            return;
+            break;
         }
         node = node -> next;
     }
@@ -67,7 +68,7 @@ void displayList(){
     printf("\n");
 }
 
-void insertAt(int ele, int index){
+void insertNodeAt(int ele, int index){
     LIST *newNode = createNode(ele);
     
     if(start == NULL){
@@ -109,16 +110,16 @@ int main(int argc, char const *argv[])
 
         switch(res){
             case 1:
-                append(acceptInteger("Element"));
+                appendNode(acceptInteger("Element"));
                 break;
             case 2: 
-                remove(acceptInteger("Element"));
+                removeNode(acceptInteger("Element"));
                 break;
             case 3:
-                insertAt(acceptInteger("Element"),acceptInteger("Index"));
+                insertNodeAt(acceptInteger("Element"),acceptInteger("Index"));
                 break;
             case 4:
-                displayStack();
+                displayList();
                 break;
             case 5:
                 isTrue=0;
