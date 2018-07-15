@@ -16,15 +16,37 @@ NODE *root = NULL;
 
 NODE *createNewNode(int ele);
 
-NODE *findSuccessor(){
+NODE *findSuccessor(NODE *node){
     //Left most node of right subtree
+    if(node -> right != NULL){
+        return getMinimum(node -> right);
+    }else{
+        NODE *parent = getParent(node);
+        if(parent != NULL && parent -> left == node){
+            return parent;
+        }else{
+            printf("No successor exists!\n");
+            return NULL;
+        }
+    }
 }
 
-NODE *findPredessessor(){
+NODE *findPredecessor(NODE *node){
     //Left most node of right subtree
+    if(node -> left != NULL){
+        return getMaximum(node -> left);
+    }else{
+        NODE *parent = getParent(node);
+        if(parent != NULL && parent -> right == node){
+            return parent;
+        }else{
+            printf("No predecessor exists!\n");
+            return NULL;
+        }
+    }
 }
 
-int getMinimum(){
+NODE *getMinimum(){
     NODE *node = root;
     if(node == NULL){
         printf("Tree Empty!\n");
@@ -35,10 +57,10 @@ int getMinimum(){
         node = node -> left;
     }
 
-    return node -> ele;
+    return node;
 }
 
-int getMaximum(){
+NODE *getMaximum(){
     NODE *node = root;
     if(node == NULL){
         printf("Tree Empty!\n");
@@ -49,7 +71,7 @@ int getMaximum(){
         node = node -> right;
     }
 
-    return node -> ele;
+    return node;
 }
 
 void preOrder(NODE *node){
