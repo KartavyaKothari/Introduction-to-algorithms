@@ -24,6 +24,30 @@ NODE *findPredessessor(){
     //Left most node of right subtree
 }
 
+void preOrder(NODE *node){
+    if(node != NULL){
+        printf("%d ",node -> ele);
+        preOrder(node->left);
+        preOrder(node->right);
+    }
+}
+
+void postOrder(NODE *node){
+    if(node != NULL){
+        postOrder(node->left);
+        postOrder(node->right);
+        printf("%d ",node -> ele);
+    }
+}
+
+void inOrder(NODE *node){
+    if(node != NULL){
+        inOrder(node->left);
+        printf("%d ",node -> ele);
+        inOrder(node->right);
+    }
+}
+
 NODE *getParent(NODE *child){
     if(child==root){
         printf("Parent DNE!\n");
